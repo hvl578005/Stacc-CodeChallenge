@@ -17,8 +17,15 @@ const ArtContainer = () => {
     data();
   }, []);
 
+  
+
   const assetArray = pusi.map((asset) => {
-    return <ArtCard key={asset.id} asset={asset} />;
+    return (
+      <ArtCard
+        key={asset.id}
+        asset={asset}
+      />
+    );
   });
 
   return assetArray;

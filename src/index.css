@@ -13,7 +13,7 @@ body {
 .wrapper {
   display: flex;
   margin: 0 auto;
-  flex-wrap: wrap-reverse;
+  flex-wrap: wrap;
 }
 
 .wrapper--variable {
@@ -77,4 +77,39 @@ img {
   display: block;
   margin-left: auto;
   margin-right: auto;
+}
+
+.modal-header {
+  background-color: #888;
+  margin: 10px;
+}
+
+.modal-body {
+  width: 300px;
+  height: 300px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 99;
+  margin-left: -150px;
+  margin-top: -150px;
+}
+
+.modal-content {
+  background-color: #888;
+  border: 1px solid #888;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20pxx 0 rgba(0, 0, 0, 0.19);
+  animation-name: animatetop;
+  animation-duration: 0.4s;
+}
+
+@keyframes animatetop {
+  from {
+    top: -300px;
+    opacity: 0;
+  }
+  to {
+    top: 0;
+    opacity: 1;
+  }
 }
