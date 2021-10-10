@@ -25,6 +25,7 @@ const ArtContainer = () => {
         key={asset.id}
         asset={asset}
       />
+      
     );
   });
 

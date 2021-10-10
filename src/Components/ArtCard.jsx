@@ -12,7 +12,6 @@ const ArtCard = ({ asset }) => {
     } else {
       document.body.style.overflow = "scroll";
     }
-
     setShowModal((prevState) => !prevState);
   };
 
@@ -46,7 +45,7 @@ const ArtCard = ({ asset }) => {
             </tbody>
           </table>
         </div>
-        {showModal && <ArtModal asset={asset} />}
+        {showModal && <ArtModal asset={asset} setShowModal={setShowModal} />}
       </>
     );
   }
