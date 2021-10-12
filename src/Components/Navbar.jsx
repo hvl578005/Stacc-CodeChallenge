@@ -1,6 +1,13 @@
 import React, { useCallback } from "react";
 
-const Navbar = ({ sortData, setSortData, orderBy, setOrderBy }) => {
+const Navbar = ({
+  sortData,
+  setSortData,
+  orderBy,
+  setOrderBy,
+  limit,
+  setLimit,
+}) => {
   const handleClick = () => {
     setSortData(sortData === "asc" ? "desc" : "asc");
   };
@@ -33,12 +40,60 @@ const Navbar = ({ sortData, setSortData, orderBy, setOrderBy }) => {
     }
   };
 
+  const checkStyles = (num) => {
+    if (num === limit) {
+      return { color: "#444444" };
+    }
+  };
+
+  const limitFunc = useCallback((limit) => {
+    switch (limit) {
+      case "20":
+        setLimit("20");
+        break;
+      case "30":
+        setLimit("30");
+        break;
+      case "40":
+        setLimit("40");
+        break;
+      case "50":
+        setLimit("50");
+        break;
+      default:
+        setLimit("50");
+        break;
+    }
+  }, []);
+
   return (
     <div className="navbar">
       <div className="navbar-p" onClick={handleClick}>
         {sortData === "asc" ? "Ascending order" : "Descending order"}
       </div>
-      <div className="navbar-p">limit</div>
+
+      <ul>
+        <li className="dropdown">
+          <a href="javascript:void(0)" className="navbar-p">
+            limit
+          </a>
+          <div className="dropdown-content">
+            <p onClick={() => limitFunc("20")} style={checkStyles("20")}>
+              20
+            </p>
+            <p onClick={() => limitFunc("30")} style={checkStyles("30")}>
+              30
+            </p>
+            <p onClick={() => limitFunc("40")} style={checkStyles("40")}>
+              40
+            </p>
+            <p onClick={() => limitFunc("50")} style={checkStyles("50")}>
+              50
+            </p>
+          </div>
+        </li>
+      </ul>
+
       <ul>
         <li className="dropdown">
           <a href="javascript:void(0)" className="navbar-p">

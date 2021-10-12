@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
 import ArtCard from "../Components/ArtCard";
 
-const ArtContainer = ({ sortData, orderBy }) => {
+const ArtContainer = ({ sortData, orderBy, limit }) => {
   const [pusi, setPusi] = useState([]);
 
   useEffect(() => {
     const data = () => {
       fetch(
-        `https://api.opensea.io/api/v1/assets?${orderBy}order_direction=${sortData}&offset=0&limit=50`
+        `https://api.opensea.io/api/v1/assets?${orderBy}order_direction=${sortData}&offset=0&limit=${limit}`
       )
         .then((response) => response.json())
         .then((data) => {
@@ -15,7 +15,7 @@ const ArtContainer = ({ sortData, orderBy }) => {
         });
     };
     data();
-  }, [sortData, orderBy]);
+  }, [sortData, orderBy, limit]);
   console.log(pusi);
 
   const assetArray = pusi.map((asset) => {

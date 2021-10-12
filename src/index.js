@@ -10,9 +10,8 @@ class Graybackground extends React.Component {
   // const [sortData, setSortData] = useState('desc');
   constructor(props) {
     super(props);
-    this.state = { sortData: 'desc', orderBy: '' };
+    this.state = { sortData: 'desc', orderBy: '', limit: '50' };
   };
-
 
   setSortData = (props) => {
     this.setState({
@@ -24,6 +23,10 @@ class Graybackground extends React.Component {
     this.setState({
       orderBy: props
     });
+  }
+
+  setLimit = (props) => {
+    this.setState({limit: props})
   }
 
     // function myFunction() {
@@ -39,9 +42,9 @@ class Graybackground extends React.Component {
     return (
       <div>
         <About />
-        <Navbar sortData={this.state.sortData} setSortData={this.setSortData} orderBy = {this.state.orderBy} setOrderBy={this.setOrderBy} />
+        <Navbar sortData={this.state.sortData} setSortData={this.setSortData} orderBy = {this.state.orderBy} setOrderBy={this.setOrderBy} limit = {this.state.limit} setLimit={this.setLimit} />
         <div className="wrapper" >
-          <ArtContainer sortData={this.state.sortData} orderBy={this.state.orderBy}/>
+          <ArtContainer sortData={this.state.sortData} orderBy={this.state.orderBy} limit={this.state.limit}/>
         </div>
       </div>
     );
