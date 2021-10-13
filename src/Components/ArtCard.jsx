@@ -15,6 +15,18 @@ const ArtCard = ({ asset }) => {
     setShowModal((prevState) => !prevState);
   };
 
+  const count = (num) => {
+    return parseInt(num);
+  };
+
+  const dynamicBackgroundColor = (backcolor) => {
+    if (backcolor == null) {
+      return { backgroundColor: "white" };
+    } else {
+      return { backgroundColor: { backcolor } };
+    }
+  };
+
   if (artConditionImage || artConditionUserName) {
     return null;
   } else {
@@ -25,7 +37,10 @@ const ArtCard = ({ asset }) => {
           onClick={handleClick}
           style={{ cursor: "pointer" }}
         >
-          <table className="artcard">
+          <table
+            className="artcard"
+            style={dynamicBackgroundColor(asset?.background_color)}
+          >
             <tbody>
               <tr>
                 <th colSpan="2">
@@ -34,13 +49,23 @@ const ArtCard = ({ asset }) => {
               </tr>
               <tr>
                 <td>{asset?.creator?.user?.username}</td>
-                <td></td>
+                <td>
+                  {!!asset?.last_sale?.payment_token && <div>Price: </div>}
+                </td>
               </tr>
               <tr>
                 <td>
                   <strong>{asset.name}</strong>
                 </td>
-                <td></td>
+                <td>
+                  <strong>
+                    {!!asset?.last_sale?.payment_token && (
+                      <div>
+                        {count(asset.last_sale.payment_token.usd_price)}$
+                      </div>
+                    )}
+                  </strong>
+                </td>
               </tr>
             </tbody>
           </table>

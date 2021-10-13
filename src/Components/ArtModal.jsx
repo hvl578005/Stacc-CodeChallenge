@@ -6,28 +6,6 @@ const ArtModal = ({ asset, setShowModal }) => {
     setShowModal((prevState) => !prevState);
   };
 
-  const traits = () => {
-    if (asset.traits.length > 0) {
-      return (
-        <div>
-          {asset.traits.map((value, index) => {
-            return (
-              <div className="modal-p" key={index}>
-                Trait: {value.trait_type}, value: {value.value}
-              </div>
-            );
-          })}
-        </div>
-      );
-    } else {
-      return "";
-    }
-  };
-
-  /*trait_type
-  value
-  */
-
   return (
     <div className="modal-bg">
       <div className="modal">
@@ -39,7 +17,17 @@ const ArtModal = ({ asset, setShowModal }) => {
           <img src={asset.image_url} alt="" className="img-modal"></img>
         </a>
         {asset.description}
-        {traits()}
+        {!!asset.traits.length && (
+          <div>
+            {asset.traits.map((value, index) => {
+              return (
+                <div className="modal-p" key={index}>
+                  Traits: {value.trait_type}, value: {value.value}
+                </div>
+              );
+            })}
+          </div>
+        )}
       </div>
     </div>
   );
