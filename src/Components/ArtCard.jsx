@@ -50,7 +50,7 @@ const ArtCard = ({ asset }) => {
               <tr>
                 <td>{asset?.creator?.user?.username}</td>
                 <td>
-                  {!!asset?.last_sale?.payment_token && <div>Price: </div>}
+                  {!!asset?.last_sale?.payment_token && <div>Price</div>}
                 </td>
               </tr>
               <tr>
@@ -61,7 +61,7 @@ const ArtCard = ({ asset }) => {
                   <strong>
                     {!!asset?.last_sale?.payment_token && (
                       <div>
-                        {count(asset.last_sale.payment_token.usd_price)}$
+                        {count(asset.last_sale.payment_token.usd_price)} $
                       </div>
                     )}
                   </strong>

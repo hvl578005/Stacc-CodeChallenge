@@ -111,7 +111,7 @@ img {
   margin-right: auto;
 }
 
-/* MODAL */
+/************ MODAL **************/
 
 .modal-bg {
   position: fixed;
@@ -130,15 +130,23 @@ img {
   animation-name: animatetop;
   animation-duration: 0.4s;
   background-color: white;
-  width: 70%;
-  height: 680px;
-  display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
-  font-family: "", "Montserrat", sans-serif;
-  padding-left: 20px;
-  padding-right: 20px;
+  padding: 20px;
+  display: inline-block;
+  max-width: 700px;
+}
+
+.modal-p {
+  font-family: Roboto, "Gibson", sans-serif, sans-serif;
+  font-size: 16px;
+}
+
+.modal-h2 {
+  font-family: Roboto, "Gibson", sans-serif, sans-serif;
+  font-size: 20px;
+  font-weight: bold;
 }
 
 .modal-button::before {
@@ -146,8 +154,8 @@ img {
 }
 
 .img-modal {
-  padding: 5px;
-  max-height: 600px;
+  padding: 20px;
+  max-height: 400px;
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -172,10 +180,6 @@ img {
   line-height: 0px;
   padding: 10px 3px;
   padding-bottom: 13px;
-}
-
-.modal-p {
-  font-size: 1rem;
 }
 
 @keyframes animatetop {
