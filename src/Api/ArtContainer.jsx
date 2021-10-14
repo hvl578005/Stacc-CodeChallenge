@@ -8,46 +8,25 @@ const ArtContainer = ({ sortData, orderBy, limit, collection }) => {
   const [isFetching, setIsFetching] = useState(false);
   useEffect(() => {
     const data = () => {
-      if (collection === false) {
-        setIsFetching(true);
-        fetch(
-          `https://api.opensea.io/api/v1/assets?${orderBy}order_direction=${sortData}&offset=0&limit=${limit}`
-        )
-          .then((response) => response.json())
-          .then((data) => {
-            setArt([...data.assets]);
-          });
-      } else {
-        setIsFetching(true);
-        fetch(`https://api.opensea.io/api/v1/collections?offset=0&limit=300`)
-          .then((response) => response.json())
-          .then((data) => {
-            setArt([...data.collections]);
-          });
-      }
+      setIsFetching(true);
+      fetch(
+        `https://api.opensea.io/api/v1/assets?${orderBy}order_direction=${sortData}&offset=0&limit=${limit}${collection}`
+      )
+        .then((response) => response.json())
+        .then((data) => {
+          setArt([...data.assets]);
+        });
     };
     data();
     setIsFetching(false);
   }, [sortData, orderBy, limit, collection]);
   console.log(art);
 
-  if (collection === false) {
-    if (isFetching) {
-      return <div className="loader">hello</div>;
-    }
-
+  if (isFetching) {
+    return <div className="loader">hello</div>;
+  } else {
     const assetArray = art.map((asset) => {
       return <ArtCard key={asset.id} asset={asset} />;
-    });
-
-    return assetArray;
-  } else {
-    if (isFetching) {
-      return <div className="loader">hello</div>;
-    }
-
-    const assetArray = art.map((asset) => {
-      return <ArtCardCollection key={asset.id} asset={asset} />;
     });
     return assetArray;
   }

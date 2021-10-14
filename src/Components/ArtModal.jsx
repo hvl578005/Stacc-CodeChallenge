@@ -10,20 +10,6 @@ const ArtModal = ({ asset, setShowModal }) => {
     return parseInt(num);
   };
 
-  /*
-<div className="modal-p">
-          <div className="modal-h2">{asset.name}</div>
-  */
-
-  /*
-<strong>Creator: </strong>
-          {!!asset.creator.user.username}
-          
-          <br></br>
-          <br></br>
-          her lage sjekk om det finnes brukernavn
-          */
-
   return (
     <div className="modal-bg">
       <div className="modal">
@@ -74,6 +60,8 @@ const ArtModal = ({ asset, setShowModal }) => {
     </div>
   );
 };
+
+/* {!!asset.}*/
 
 /*
 {!!asset.traits.length && (

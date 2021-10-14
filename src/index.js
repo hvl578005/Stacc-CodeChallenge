@@ -8,7 +8,7 @@ import Navbar from "./Components/Navbar"
 class Graybackground extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { sortData: 'desc', orderBy: 'order_by=sale_date&', limit: '50', collection: false};
+    this.state = { sortData: 'asc', orderBy: 'order_by=sale_price&', limit: '20', collection: ''};
   };
 
   setSortData = (props) => {
