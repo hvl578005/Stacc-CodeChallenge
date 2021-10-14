@@ -5,10 +5,7 @@ const About = () => {
     <div className="about">
       <strong>
         <h2>crypto art</h2>
-        <p>
-          bid on your favorite non-fungible tokens and you might be the lucky
-          one
-        </p>
+        <p>discover and collect extraordinary NFT's</p>
       </strong>
     </div>
   );

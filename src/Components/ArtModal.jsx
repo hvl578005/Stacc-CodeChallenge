@@ -35,9 +35,9 @@ const ArtModal = ({ asset, setShowModal }) => {
           <a href={asset.permalink}>
             <img src={asset.image_url} alt="" className="img-modal"></img>
           </a>
-          {!!asset.creator.user.username && (
+          {!!asset?.creator?.user?.username && (
             <div>
-              <strong>Creator: </strong> {asset.creator.user.username}
+              <strong>Creator: </strong> {asset?.creator?.user?.username}
               <br></br>
               <br></br>
             </div>
@@ -49,13 +49,34 @@ const ArtModal = ({ asset, setShowModal }) => {
               <br></br>
             </div>
           )}
-          {!!!!asset.last_sale.payment_token && (
+          {!!asset?.last_sale?.payment_token && (
             <div>
               <strong>Price: </strong>
               {count(asset.last_sale.payment_token.usd_price)} $
             </div>
           )}
+
           {!!asset.traits.length && (
+            <div className="modal-trait-container">
+              {asset.traits.map((value, index) => {
+                return (
+                  <div className="modal-trait" key={index}>
+                    <strong>{value.trait_type}</strong>
+                    <br></br>
+                    {value.value}
+                  </div>
+                );
+              })}
+            </div>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+/*
+{!!asset.traits.length && (
             <div>
               <table className="modal-table">
                 <tbody>
@@ -75,9 +96,5 @@ const ArtModal = ({ asset, setShowModal }) => {
               </table>
             </div>
           )}
-        </div>
-      </div>
-    </div>
-  );
-};
+*/
 export default ArtModal;

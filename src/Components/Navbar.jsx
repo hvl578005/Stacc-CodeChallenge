@@ -1,4 +1,6 @@
 import React, { useCallback } from "react";
+import Collections from "../Api/Collections";
+import { useHistory } from "react-router-dom";
 
 const Navbar = ({
   sortData,
@@ -11,6 +13,7 @@ const Navbar = ({
   const handleClick = () => {
     setSortData(sortData === "asc" ? "desc" : "asc");
   };
+  const history = useHistory();
 
   const orderByFunc = useCallback((saleOrder) => {
     switch (saleOrder) {
@@ -65,6 +68,10 @@ const Navbar = ({
         break;
     }
   }, []);
+
+  const clickCollections = () => {
+    history.push("/Collections");
+  };
 
   return (
     <div className="navbar">
@@ -124,6 +131,9 @@ const Navbar = ({
           </div>
         </li>
       </ul>
+      <div className="navbar-p" onClick={clickCollections}>
+        Collections
+      </div>
     </div>
   );
 };
