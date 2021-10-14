@@ -6,10 +6,23 @@ const ArtModal = ({ asset, setShowModal }) => {
     setShowModal((prevState) => !prevState);
   };
 
+  const count = (num) => {
+    return parseInt(num);
+  };
+
   /*
 <div className="modal-p">
           <div className="modal-h2">{asset.name}</div>
   */
+
+  /*
+<strong>Creator: </strong>
+          {!!asset.creator.user.username}
+          
+          <br></br>
+          <br></br>
+          her lage sjekk om det finnes brukernavn
+          */
 
   return (
     <div className="modal-bg">
@@ -22,16 +35,44 @@ const ArtModal = ({ asset, setShowModal }) => {
           <a href={asset.permalink}>
             <img src={asset.image_url} alt="" className="img-modal"></img>
           </a>
-          {asset.description}
+          {!!asset.creator.user.username && (
+            <div>
+              <strong>Creator: </strong> {asset.creator.user.username}
+              <br></br>
+              <br></br>
+            </div>
+          )}
+          {!!asset.description && (
+            <div>
+              <strong>Description: </strong> {asset.description}
+              <br></br>
+              <br></br>
+            </div>
+          )}
+          {!!!!asset.last_sale.payment_token && (
+            <div>
+              <strong>Price: </strong>
+              {count(asset.last_sale.payment_token.usd_price)} $
+            </div>
+          )}
           {!!asset.traits.length && (
             <div>
-              {asset.traits.map((value, index) => {
-                return (
-                  <div key={index}>
-                    Traits: {value.trait_type}, value: {value.value}
-                  </div>
-                );
-              })}
+              <table className="modal-table">
+                <tbody>
+                  <tr>
+                    <th>Trait</th>
+                    <th>Value</th>
+                  </tr>
+                  {asset.traits.map((value, index) => {
+                    return (
+                      <tr key={index}>
+                        <td>{value.trait_type}</td>
+                        <td>{value.value}</td>
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
             </div>
           )}
         </div>
@@ -39,5 +80,4 @@ const ArtModal = ({ asset, setShowModal }) => {
     </div>
   );
 };
-
 export default ArtModal;

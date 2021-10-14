@@ -136,21 +136,24 @@ img {
   padding: 20px;
   display: inline-block;
   max-width: 700px;
+  max-height: 700px;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .modal-p {
-  font-family: Roboto, "Gibson", sans-serif, sans-serif;
-  font-size: 16px;
+  font-family: "", "Montserrat", sans-serif;
+  font-size: 14px;
+  color: #4d4d4d;
+  letter-spacing: 1px;
 }
 
 .modal-h2 {
-  font-family: Roboto, "Gibson", sans-serif, sans-serif;
-  font-size: 20px;
+  font-family: "", "Montserrat", sans-serif;
+  font-size: 18px;
   font-weight: bold;
-}
-
-.modal-button::before {
-  content: "\00d7"; /* This will render the 'X' */
+  color: #4d4d4d;
+  letter-spacing: 1px;
 }
 
 .img-modal {
@@ -162,9 +165,10 @@ img {
 }
 
 .modal-place-button {
-  position: absolute;
-  right: 215px;
-  height: 650px;
+  top: 9px;
+  width: 6px;
+  position: relative;
+  float: right;
 }
 
 .modal-button {
@@ -173,13 +177,29 @@ img {
   cursor: pointer;
   color: #fff;
   border: 1px solid #aeaeae;
-  border-radius: 30px;
-  background: #605f61;
-  font-size: 31px;
+  background: #909090;
+  font-size: 37px;
   font-weight: bold;
   line-height: 0px;
   padding: 10px 3px;
   padding-bottom: 13px;
+  padding-right: 1px;
+  z-index: 2;
+}
+
+.modal-trait {
+  border-radius: 10px;
+  padding: 10px;
+  margin: 10px;
+  background-color: #f1f0ee;
+  font-family: "", "Montserrat", sans-serif;
+  font-size: 14px;
+  color: #4d4d4d;
+  letter-spacing: 1px;
+}
+
+.modal-button::before {
+  content: "\00d7";
 }
 
 @keyframes animatetop {
@@ -191,6 +211,29 @@ img {
     top: 0;
     opacity: 1;
   }
+}
+
+/******** MODAL TABLE **********/
+
+.modal-table {
+  border-collapse: collapse;
+  padding: 10px;
+  margin-top: 20px;
+}
+
+.modal-table td,
+th,
+tr {
+  text-align: left;
+  font-family: "", "Montserrat", sans-serif;
+  font-size: 14px;
+  padding: 5px;
+  padding-left: 5px;
+  min-width: 40px;
+}
+
+.modal-table tr:nth-child(even) {
+  background-color: #f1f0ee;
 }
 
 /* DROP DOWN BOX */

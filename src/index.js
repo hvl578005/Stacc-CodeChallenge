@@ -10,7 +10,7 @@ class Graybackground extends React.Component {
   // const [sortData, setSortData] = useState('desc');
   constructor(props) {
     super(props);
-    this.state = { sortData: 'desc', orderBy: '', limit: '50' };
+    this.state = { sortData: 'asc', orderBy: 'order_by=sale_price&', limit: '50' };
   };
 
   setSortData = (props) => {
