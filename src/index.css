@@ -78,6 +78,29 @@ p {
   cursor: pointer;
 }
 
+.navbar-p .search-container {
+  float: right;
+}
+
+/* Style the input field inside the navbar */
+.navbar-p input[type="text"] {
+  padding: 6px;
+  margin-top: 8px;
+  font-size: 17px;
+  border: none;
+}
+
+.navbar-p .search-container button {
+  float: right;
+  padding: 6px;
+  margin-top: 8px;
+  margin-right: 16px;
+  background: #ddd;
+  font-size: 17px;
+  border: none;
+  cursor: pointer;
+}
+
 /* DROP DOWN BOX */
 
 ul {
@@ -305,7 +328,7 @@ tr {
 .loader {
   position: absolute;
   left: 50%;
-  top: 50%;
+  top: 65%;
   z-index: 10;
   width: 120px;
   height: 120px;

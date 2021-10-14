@@ -1,4 +1,5 @@
 import React, { useCallback } from "react";
+import { useState } from "react";
 
 const Navbar = ({
   sortData,
@@ -10,11 +11,14 @@ const Navbar = ({
   collection,
   setCollection,
 }) => {
+  const [inputid, setInputid] = useState("");
+
   const handleClick = () => {
     setSortData(sortData === "asc" ? "desc" : "asc");
     setOrderBy("order_by=sale_date&");
     setLimit("20");
   };
+
   const orderByFunc = useCallback((saleOrder) => {
     switch (saleOrder) {
       case "sd":
@@ -81,6 +85,15 @@ const Navbar = ({
     setLimit("20");
     setSortData("asc");
   }, []);
+
+  const buttonClick = () => {
+    collection = "&collection=" + inputid;
+    setCollection(collection);
+    setOrderBy("");
+    setLimit("20");
+    setSortData("asc");
+    console.log(inputid);
+  };
 
   return (
     <div className="navbar">
@@ -212,6 +225,17 @@ const Navbar = ({
           </div>
         </li>
       </ul>
+      <div className="navbar-p">
+        <div classname="search-container">
+          <input
+            type="text"
+            placeholder="search for collection"
+            value={inputid}
+            onInput={(e) => setInputid(e.target.value)}
+          ></input>
+          <button onClick={() => buttonClick()}>Submit</button>
+        </div>
+      </div>
     </div>
   );
 };

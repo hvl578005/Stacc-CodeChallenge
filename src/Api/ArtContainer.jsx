@@ -15,15 +15,15 @@ const ArtContainer = ({ sortData, orderBy, limit, collection }) => {
         .then((response) => response.json())
         .then((data) => {
           setArt([...data.assets]);
+          setIsFetching(false);
         });
     };
     data();
-    setIsFetching(false);
   }, [sortData, orderBy, limit, collection]);
   console.log(art);
 
   if (isFetching) {
-    return <div className="loader">hello</div>;
+    return <div className="loader" />;
   } else {
     const assetArray = art.map((asset) => {
       return <ArtCard key={asset.id} asset={asset} />;
