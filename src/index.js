@@ -37,7 +37,7 @@ class Graybackground extends React.Component {
         <About />
         <Navbar sortData={this.state.sortData} setSortData={this.setSortData} orderBy = {this.state.orderBy} setOrderBy={this.setOrderBy} limit = {this.state.limit} setLimit={this.setLimit} collection = {this.state.collection} setCollection = {this.setCollection} />
         <div className="wrapper" >
-          <ArtContainer sortData={this.state.sortData} orderBy={this.state.orderBy} limit={this.state.limit} collection={this.state.collection}/>
+          <ArtContainer sortData={this.state.sortData} orderBy={this.state.orderBy} setOrderBy={this.setOrderBy} limit={this.state.limit} collection={this.state.collection} setCollection = {this.setCollection}/>
         </div>
       </div>
     );

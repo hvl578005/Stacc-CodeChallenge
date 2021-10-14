@@ -1,5 +1,6 @@
 import React, { useCallback } from "react";
 import { useState } from "react";
+import { FaSearch } from "react-icons/fa";
 
 const Navbar = ({
   sortData,
@@ -92,6 +93,7 @@ const Navbar = ({
     setOrderBy("");
     setLimit("20");
     setSortData("asc");
+    setInputid("");
     console.log(inputid);
   };
 
@@ -217,6 +219,13 @@ const Navbar = ({
             </p>
 
             <p
+              onClick={() => clickCollections("&collection=cocktailonchain")}
+              style={checkStyleC("&collection=cocktailonchain")}
+            >
+              CocktailOnChain
+            </p>
+
+            <p
               onClick={() => clickCollections("")}
               style={checkStyleC("&collection=hashstags")}
             >
@@ -226,15 +235,15 @@ const Navbar = ({
         </li>
       </ul>
       <div className="navbar-p">
-        <div classname="search-container">
-          <input
-            type="text"
-            placeholder="search for collection"
-            value={inputid}
-            onInput={(e) => setInputid(e.target.value)}
-          ></input>
-          <button onClick={() => buttonClick()}>Submit</button>
-        </div>
+        <input
+          type="text"
+          placeholder="search collections..."
+          value={inputid}
+          onInput={(e) => setInputid(e.target.value)}
+        ></input>
+        <button onClick={() => buttonClick()}>
+          <FaSearch />
+        </button>
       </div>
     </div>
   );
