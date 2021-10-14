@@ -48,7 +48,9 @@ const ArtContainer = ({
       return (
         <div className="error">
           <img src={errorImage} onClick={goBack} alt="jpg"></img>
-          <p onClick={goBack}>Go back</p>
+          <p onClick={goBack}>
+            Search for example "flowers" or click on me to go back
+          </p>
         </div>
       );
     }

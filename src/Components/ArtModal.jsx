@@ -25,20 +25,21 @@ const ArtModal = ({ asset, setShowModal }) => {
             <div>
               <strong>Creator: </strong> {asset?.creator?.user?.username}
               <br></br>
-              <br></br>
             </div>
           )}
           {!!asset.description && (
             <div>
-              <strong>Description: </strong> {asset.description}
               <br></br>
+              <strong>Description: </strong> {asset.description}
               <br></br>
             </div>
           )}
           {!!asset?.last_sale?.payment_token && (
             <div>
+              <br></br>
               <strong>Price: </strong>
-              {count(asset.last_sale.payment_token.usd_price)} $
+              {count(asset.last_sale.payment_token.usd_price)} $<br></br>
+              <br></br>
             </div>
           )}
 
@@ -55,34 +56,47 @@ const ArtModal = ({ asset, setShowModal }) => {
               })}
             </div>
           )}
+
+          {!!asset?.collection?.name && (
+            <div>
+              <br></br>
+              <strong>About {asset?.collection?.name} </strong>
+              <br></br>
+            </div>
+          )}
+
+          {!!asset?.collection?.description && (
+            <div>
+              <br></br>
+              {asset?.collection?.description}
+              <br></br>
+            </div>
+          )}
+
+          {!!asset?.collection?.slug && (
+            <div>
+              <br></br>
+              <strong>Collection search name: </strong>{" "}
+              {asset?.collection?.slug}
+              <br></br>
+            </div>
+          )}
         </div>
       </div>
     </div>
   );
 };
 
-/* {!!asset.}*/
-
 /*
-{!!asset.traits.length && (
-            <div>
-              <table className="modal-table">
-                <tbody>
-                  <tr>
-                    <th>Trait</th>
-                    <th>Value</th>
-                  </tr>
-                  {asset.traits.map((value, index) => {
-                    return (
-                      <tr key={index}>
-                        <td>{value.trait_type}</td>
-                        <td>{value.value}</td>
-                      </tr>
-                    );
-                  })}
-                </tbody>
-              </table>
+
+{!!asset?.collection?.name && (
+  <div>
+  <strong>Collection name: </strong> {asset?.collection?.name}
+<br></br>
+              <br></br>
             </div>
-          )}
+
+)}
+
 */
 export default ArtModal;

@@ -5,7 +5,7 @@ const About = () => {
     <div className="about">
       <strong>
         <h2>crypto art</h2>
-        <p>discover extraordinary NFT's</p>
+        <p>discover extraordinary NFT's and collections</p>
       </strong>
     </div>
   );
