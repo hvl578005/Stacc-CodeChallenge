@@ -55,7 +55,7 @@ p {
   font-family: "", "Montserrat", sans-serif;
   background-color: #f1f0ee;
   text-align: center;
-  padding: 10px;
+  padding: 10px 10px;
   font-size: 1.3rem;
 }
 
@@ -70,6 +70,7 @@ p {
   letter-spacing: 2px;
   margin-left: 20px;
   margin-right: 20px;
+  padding-top: 10px;
 }
 
 .navbar-p:hover {

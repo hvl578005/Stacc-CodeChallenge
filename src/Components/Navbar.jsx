@@ -161,6 +161,7 @@ const Navbar = ({
         >
           Back to NFT's
         </div>
+        
       </div>
     );
   }
