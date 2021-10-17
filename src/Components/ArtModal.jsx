@@ -87,16 +87,4 @@ const ArtModal = ({ asset, setShowModal }) => {
   );
 };
 
-/*
-
-{!!asset?.collection?.name && (
-  <div>
-  <strong>Collection name: </strong> {asset?.collection?.name}
-<br></br>
-              <br></br>
-            </div>
-
-)}
-
-*/
 export default ArtModal;
